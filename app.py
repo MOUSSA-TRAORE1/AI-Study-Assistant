@@ -11,7 +11,7 @@ from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI
 import os 
-from langchain.callbacks import get_openai_callback  # this is for tracking open ai details/elements
+from langchain_community.callbacks.manager import get_openai_callback
 
 '''API key for request and receiving (not using this anymore, api key should be protected not used in code like that especially if its gonna be published)
 os.environ["OPENAI_API_KEY"]="sk..." '''
