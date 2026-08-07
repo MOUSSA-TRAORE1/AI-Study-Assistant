@@ -43,12 +43,13 @@ Multi-document support
 Better UI
 Deployment
 
-
-👤 Author
-Moussa Traoré
 ## ▶️ How to Run
 
 ```bash
 pip install -r requirements.txt
 streamlit run streamlit_app.py
+```
+
+👤 Author
+Moussa Traoré
 
