@@ -28,12 +28,6 @@ This project uses Retrieval-Augmented Generation (RAG):
 4. User question → relevant chunks retrieved
 5. LLM generates answer based on context
 
-## ▶️ How to Run
-
-```bash
-pip install -r requirements.txt
-streamlit run streamlit_app.py
-
 ## 📸 Screenshots
 
 ### Upload Interface
@@ -52,3 +46,9 @@ Deployment
 
 👤 Author
 Moussa Traoré
+## ▶️ How to Run
+
+```bash
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+
