@@ -1,6 +1,6 @@
-import streamlit as st
-from dotenv import load_dotenv
-load_dotenv()
+import streamlit as st              #for web interface
+from dotenv import load_dotenv      # allow loading api key securely
+load_dotenv(override=True)
 
 from pypdf import PdfReader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -60,16 +60,17 @@ def generate_note(context,llm):
 
 
 # Upload PDF
-uploaded_files = st.file_uploader("Upload your PDF", type="pdf", accept_multiple_files=True) #
+uploaded_files = st.file_uploader("Upload your PDF", type="pdf", accept_multiple_files=True) 
 
+#File processing 
 if uploaded_files:
-    documents = []
+    documents = []   # a list to store all the extracted pages (with metadata as well)
 
     for file in uploaded_files:
         reader = PdfReader(file)
 
         for i, page in enumerate(reader.pages):
-            text = page.extract_text() or ""
+            text = page.extract_text() or ""      # extract text from pdf page or none
 
             documents.append(
                 Document(
@@ -99,10 +100,10 @@ if uploaded_files:
         st.session_state.db = Chroma.from_documents(chunks, embeddings)
 
     db = st.session_state.db
-    
+    #Retriever
     retriever = db.as_retriever(search_kwargs={"k": 3})
 
-    #LLM dfinition
+    #LLM definition
     llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.3)
 
 
